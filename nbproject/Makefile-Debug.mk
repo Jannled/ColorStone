@@ -21,8 +21,8 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=GNU-Linux
-CND_DLIB_EXT=so
+CND_PLATFORM=MinGW_MSYS-Windows
+CND_DLIB_EXT=dll
 CND_CONF=Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build
@@ -52,15 +52,18 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=lib/Win32/libusb-1.0.dll -lusb-1.0
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone.exe
+	${CP} lib/Win32/libusb-1.0.dll ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone.exe: lib/Win32/libusb-1.0.dll
+
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone ${OBJECTFILES} ${LDLIBSOPTIONS} -Llib\Win64 -Wl,-rpath,.
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
@@ -73,6 +76,8 @@ ${OBJECTDIR}/main.o: main.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
+	${RM} -r ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libusb-1.0.dll
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone.exe
 
 # Subprojects
 .clean-subprojects:

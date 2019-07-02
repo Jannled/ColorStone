@@ -28,14 +28,40 @@
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
-    <conf name="Debug" type="1">
+    <conf name="Debug" type="1" platformSpecific="true">
       <toolsSet>
         <compilerSet>default</compilerSet>
+        <platform>3</platform>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <linkerTool>
+          <linkerCopySharedLibs>true</linkerCopySharedLibs>
+          <linkerLibItems>
+            <linkerLibFileItem>lib/Win32/libusb-1.0.dll</linkerLibFileItem>
+            <linkerLibLibItem>usb-1.0</linkerLibLibItem>
+          </linkerLibItems>
+          <commandLine>-Llib\Win64 -Wl,-rpath,.</commandLine>
+        </linkerTool>
       </compileType>
+      <packaging>
+        <packType>Tar</packType>
+        <packFileList>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/libusb-1.0.dll"
+                            from="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libusb-1.0.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}.exe"
+                            from="${OUTPUT_PATH}.exe"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+        </packFileList>
+      </packaging>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
