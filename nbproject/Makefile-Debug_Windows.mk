@@ -21,9 +21,9 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=MinGW_MSYS-Windows
-CND_DLIB_EXT=dll
-CND_CONF=Debug
+CND_PLATFORM=GNU-Linux
+CND_DLIB_EXT=so
+CND_CONF=Debug_Windows
 CND_DISTDIR=dist
 CND_BUILDDIR=build
 
@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Connection/LibUSBCon.o \
 	${OBJECTDIR}/Devices/Device.o \
 	${OBJECTDIR}/main.o
 
@@ -53,18 +54,23 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=lib/Win64/libusb-1.0.dll -lusb-1.0
+LDLIBSOPTIONS=lib/Win64/libusb-1.0.dll -lusb
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone
 	${CP} lib/Win64/libusb-1.0.dll ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone.exe: lib/Win64/libusb-1.0.dll
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone: lib/Win64/libusb-1.0.dll
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone ${OBJECTFILES} ${LDLIBSOPTIONS} -Llib\Win64 -Wl,-rpath,.
+
+${OBJECTDIR}/Connection/LibUSBCon.o: Connection/LibUSBCon.cpp
+	${MKDIR} -p ${OBJECTDIR}/Connection
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Connection/LibUSBCon.o Connection/LibUSBCon.cpp
 
 ${OBJECTDIR}/Devices/Device.o: Devices/Device.cpp
 	${MKDIR} -p ${OBJECTDIR}/Devices
@@ -83,7 +89,7 @@ ${OBJECTDIR}/main.o: main.cpp
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
 	${RM} -r ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libusb-1.0.dll
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone.exe
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone
 
 # Subprojects
 .clean-subprojects:

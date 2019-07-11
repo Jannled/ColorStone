@@ -12,8 +12,9 @@
  */
 
 #include <iostream>
-#include "include/libusb.h"
+#include <stdio.h>
 #include "Devices/Device.h"
+#include "Connection/LibUSBCon.h"
 
 using namespace std;
 
@@ -39,13 +40,9 @@ int main(int argc, char** argv)
 	cout << "Unknown" << endl;
 #endif
 	
-	int libusbErr = libusb_init(NULL);
-	if(libusbErr != 0)
-		cerr << "Failed to initialize libUSB! (" << libusbErr << ")" << endl;
-	else
-		cout << "Initialized libUSB" << endl;
-	
-	//Array<Animation> animations(2);
+	LibUSBCon lusbcon;
+	lusbcon.init();
+	lusbcon.updateDevices();
 	
 	Device d("Logitech", "G213 Prodigy");
 	cout << "Geräte: " << d.getName() << endl;

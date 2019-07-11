@@ -6,11 +6,11 @@
 
 # Macros
 TOP=`pwd`
-CND_PLATFORM=MinGW_MSYS-Windows
-CND_CONF=Debug
+CND_PLATFORM=GNU-Linux
+CND_CONF=Debug_Linux
 CND_DISTDIR=dist
 CND_BUILDDIR=build
-CND_DLIB_EXT=dll
+CND_DLIB_EXT=so
 NBTMPDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tmp-packaging
 TMPDIRNAME=tmp-packaging
 OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone
@@ -82,6 +82,18 @@ copyFileToTmpDir "${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libusb-1.0.dll" "${
 cd "${TOP}"
 makeDirectory "${NBTMPDIR}/colorstone/bin"
 copyFileToTmpDir "${OUTPUT_PATH}.exe" "${NBTMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}.exe" 0755
+
+cd "${TOP}"
+makeDirectory "${NBTMPDIR}/colorstone/bin"
+copyFileToTmpDir "${OUTPUT_PATH}" "${NBTMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
+
+cd "${TOP}"
+makeDirectory "${NBTMPDIR}/colorstone/bin"
+copyFileToTmpDir "${OUTPUT_PATH}" "${NBTMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
+
+cd "${TOP}"
+makeDirectory "${NBTMPDIR}/colorstone/bin"
+copyFileToTmpDir "${OUTPUT_PATH}" "${NBTMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file

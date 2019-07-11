@@ -26,7 +26,7 @@ private:
 	T* array;
 	
 public:
-	Array(int size)
+	Array(size_t size)
 	{
 		this->length = size;
 		array = new T[length];
@@ -52,7 +52,7 @@ public:
 		if(pos > 0 && pos < length)
 			return array[pos];
 		else 
-			throw std::out_of_range("Index o");
+			throw std::out_of_range("Index is out of range!");
 	}
 };
 

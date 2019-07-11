@@ -7,7 +7,8 @@
       <itemPath>Devices/Animations.h</itemPath>
       <itemPath>lib/JLib/Array.h</itemPath>
       <itemPath>Devices/Device.h</itemPath>
-      <itemPath>lib/HardwareInterface.h</itemPath>
+      <itemPath>Hardware/HardwareInterface.h</itemPath>
+      <itemPath>Connection/LibUSBCon.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -17,6 +18,7 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>Devices/Device.cpp</itemPath>
+      <itemPath>Connection/LibUSBCon.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -33,10 +35,9 @@
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
-    <conf name="Debug" type="1" platformSpecific="true">
+    <conf name="Debug_Windows" type="1">
       <toolsSet>
         <compilerSet>default</compilerSet>
-        <platform>3</platform>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
@@ -45,7 +46,7 @@
           <linkerCopySharedLibs>true</linkerCopySharedLibs>
           <linkerLibItems>
             <linkerLibFileItem>lib/Win64/libusb-1.0.dll</linkerLibFileItem>
-            <linkerLibLibItem>usb-1.0</linkerLibLibItem>
+            <linkerLibLibItem>usb</linkerLibLibItem>
           </linkerLibItems>
           <commandLine>-Llib\Win64 -Wl,-rpath,.</commandLine>
         </linkerTool>
@@ -89,15 +90,43 @@
                             perm="755"
                             owner="root"
                             group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/libusb-1.0.dll"
+                            from="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libusb-1.0.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}"
+                            from="${OUTPUT_PATH}"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/libusb-1.0.dll"
+                            from="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libusb-1.0.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}"
+                            from="${OUTPUT_PATH}"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
         </packFileList>
       </packaging>
+      <item path="Connection/LibUSBCon.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Connection/LibUSBCon.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Devices/Animations.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Devices/Device.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Devices/Device.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="lib/HardwareInterface.h" ex="false" tool="3" flavor2="0">
+      <item path="Hardware/HardwareInterface.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="lib/JLib/Array.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -124,17 +153,104 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="Connection/LibUSBCon.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Connection/LibUSBCon.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Devices/Animations.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Devices/Device.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Devices/Device.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="lib/HardwareInterface.h" ex="false" tool="3" flavor2="0">
+      <item path="Hardware/HardwareInterface.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="lib/JLib/Array.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Debug_Linux" type="1" platformSpecific="true">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <platform>2</platform>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <linkerTool>
+          <linkerCopySharedLibs>true</linkerCopySharedLibs>
+          <commandLine>`pkg-config --libs --cflags libusb-1.0`</commandLine>
+        </linkerTool>
+      </compileType>
+      <packaging>
+        <packType>Tar</packType>
+        <packFileList>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/libusb-1.0.dll"
+                            from="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libusb-1.0.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}.exe"
+                            from="${OUTPUT_PATH}.exe"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/libusb-1.0.dll"
+                            from="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libusb-1.0.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}.exe"
+                            from="${OUTPUT_PATH}.exe"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/libusb-1.0.dll"
+                            from="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libusb-1.0.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}.exe"
+                            from="${OUTPUT_PATH}.exe"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}"
+                            from="${OUTPUT_PATH}"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}"
+                            from="${OUTPUT_PATH}"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+        </packFileList>
+      </packaging>
+      <item path="Connection/LibUSBCon.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Connection/LibUSBCon.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Devices/Animations.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Devices/Device.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="Devices/Device.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Hardware/HardwareInterface.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/JLib/Array.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="9">
       </item>
     </conf>
   </confs>

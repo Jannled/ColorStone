@@ -14,9 +14,16 @@
 #ifndef HARDWAREINTERFACE_H
 #define HARDWAREINTERFACE_H
 
+#include <string>
+#include "../Devices/Device.h"
+
 class HardwareInterface
 {
-	
+public:
+	virtual void init() = 0;
+	virtual void updateDevices() = 0;
+	virtual void sendCommand(Device d, std::string command) = 0;
+	virtual void exit() = 0;
 };
 
 #endif /* HARDWAREINTERFACE_H */
