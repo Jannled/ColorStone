@@ -5,7 +5,7 @@
  */
 
 /* 
- * File:   newfile.h
+ * File:   ColorLib.h
  * Author: jannled
  *
  * Created on 30. Juni 2019, 23:27
@@ -19,4 +19,3 @@ typedef unsigned short int hex4;
 typedef unsigned char hex2;
 
 #endif /* NEWFILE_H */
-

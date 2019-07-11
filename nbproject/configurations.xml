@@ -4,6 +4,10 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>Devices/Animations.h</itemPath>
+      <itemPath>lib/JLib/Array.h</itemPath>
+      <itemPath>Devices/Device.h</itemPath>
+      <itemPath>lib/HardwareInterface.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -12,6 +16,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>Devices/Device.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -39,7 +44,7 @@
         <linkerTool>
           <linkerCopySharedLibs>true</linkerCopySharedLibs>
           <linkerLibItems>
-            <linkerLibFileItem>lib/Win32/libusb-1.0.dll</linkerLibFileItem>
+            <linkerLibFileItem>lib/Win64/libusb-1.0.dll</linkerLibFileItem>
             <linkerLibLibItem>usb-1.0</linkerLibLibItem>
           </linkerLibItems>
           <commandLine>-Llib\Win64 -Wl,-rpath,.</commandLine>
@@ -60,8 +65,42 @@
                             perm="755"
                             owner="root"
                             group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/libusb-1.0.dll"
+                            from="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libusb-1.0.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}.exe"
+                            from="${OUTPUT_PATH}.exe"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/libusb-1.0.dll"
+                            from="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libusb-1.0.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}.exe"
+                            from="${OUTPUT_PATH}.exe"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
         </packFileList>
       </packaging>
+      <item path="Devices/Animations.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Devices/Device.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Devices/Device.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/HardwareInterface.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/JLib/Array.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -85,6 +124,16 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="Devices/Animations.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Devices/Device.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Devices/Device.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/HardwareInterface.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/JLib/Array.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>

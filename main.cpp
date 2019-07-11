@@ -13,6 +13,7 @@
 
 #include <iostream>
 #include "include/libusb.h"
+#include "Devices/Device.h"
 
 using namespace std;
 
@@ -43,6 +44,11 @@ int main(int argc, char** argv)
 		cerr << "Failed to initialize libUSB! (" << libusbErr << ")" << endl;
 	else
 		cout << "Initialized libUSB" << endl;
+	
+	//Array<Animation> animations(2);
+	
+	Device d("Logitech", "G213 Prodigy");
+	cout << "Geräte: " << d.getName() << endl;
 	
 	return 0;
 }

@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Devices/Device.o \
 	${OBJECTDIR}/main.o
 
 
@@ -52,18 +53,23 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=lib/Win32/libusb-1.0.dll -lusb-1.0
+LDLIBSOPTIONS=lib/Win64/libusb-1.0.dll -lusb-1.0
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
 	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone.exe
-	${CP} lib/Win32/libusb-1.0.dll ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
+	${CP} lib/Win64/libusb-1.0.dll ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone.exe: lib/Win32/libusb-1.0.dll
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone.exe: lib/Win64/libusb-1.0.dll
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/colorstone ${OBJECTFILES} ${LDLIBSOPTIONS} -Llib\Win64 -Wl,-rpath,.
+
+${OBJECTDIR}/Devices/Device.o: Devices/Device.cpp
+	${MKDIR} -p ${OBJECTDIR}/Devices
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Devices/Device.o Devices/Device.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

@@ -14,10 +14,11 @@
 #ifndef LOGITECH_G213_H
 #define LOGITECH_G213_H
 
+#include "../lib/ColorLib.h"
+#include "Device.h"
 
-
-class Logitech_G213 {
-	
+class Logitech_G213: public Device 
+{	
 	//Logitech G213 Prodigy vars
 	char* standardColorHex	= 'ffb4aa';	// Standard color, i found this color to produce a white color on my G213
 	hex4 idVendor			= 0x046d;			// The id of the Logitech company
