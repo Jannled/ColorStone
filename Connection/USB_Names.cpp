@@ -34,7 +34,8 @@ USB_Names::~USB_Names()
 
 void USB_Names::parseIDS(std::string filePath)
 {
-	std::cout << "Loading DB: " << filePath << std::endl;
+	std::cout << "Loading USB Ids: " << filePath << std::endl;
+	
 }
 
 std::string USB_Names::lookup(char vendor[4], char name[4])

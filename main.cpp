@@ -50,7 +50,6 @@ int main(int argc, char** argv)
 	getcwd(workDir, 128);
 	std::cout << "Working directory: " << workDir << std::endl;
 	
-	
 	std::string usbIds(workDir);
 	usbIds += FSEP + std::string("Connection") + FSEP + std::string("usb.ids");
 	USB_Names usbNames(usbIds);

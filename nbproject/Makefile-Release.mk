@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Connection/LibUSBCon.o \
+	${OBJECTDIR}/Connection/USB_Names.o \
 	${OBJECTDIR}/Devices/Device.o \
 	${OBJECTDIR}/main.o
 
@@ -68,6 +69,11 @@ ${OBJECTDIR}/Connection/LibUSBCon.o: Connection/LibUSBCon.cpp
 	${MKDIR} -p ${OBJECTDIR}/Connection
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Connection/LibUSBCon.o Connection/LibUSBCon.cpp
+
+${OBJECTDIR}/Connection/USB_Names.o: Connection/USB_Names.cpp
+	${MKDIR} -p ${OBJECTDIR}/Connection
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Connection/USB_Names.o Connection/USB_Names.cpp
 
 ${OBJECTDIR}/Devices/Device.o: Devices/Device.cpp
 	${MKDIR} -p ${OBJECTDIR}/Devices

@@ -30,4 +30,3 @@ private:
 };
 
 #endif /* USB_NAMES_H */
-
