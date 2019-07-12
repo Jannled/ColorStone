@@ -7,13 +7,13 @@ CND_BASEDIR=`pwd`
 CND_BUILDDIR=build
 CND_DISTDIR=dist
 # Debug_Windows configuration
-CND_PLATFORM_Debug_Windows=GNU-Linux
-CND_ARTIFACT_DIR_Debug_Windows=dist/Debug_Windows/GNU-Linux
+CND_PLATFORM_Debug_Windows=MinGW_MSYS-Windows
+CND_ARTIFACT_DIR_Debug_Windows=dist/Debug_Windows/MinGW_MSYS-Windows
 CND_ARTIFACT_NAME_Debug_Windows=colorstone
-CND_ARTIFACT_PATH_Debug_Windows=dist/Debug_Windows/GNU-Linux/colorstone
-CND_PACKAGE_DIR_Debug_Windows=dist/Debug_Windows/GNU-Linux/package
+CND_ARTIFACT_PATH_Debug_Windows=dist/Debug_Windows/MinGW_MSYS-Windows/colorstone
+CND_PACKAGE_DIR_Debug_Windows=dist/Debug_Windows/MinGW_MSYS-Windows/package
 CND_PACKAGE_NAME_Debug_Windows=colorstone.tar
-CND_PACKAGE_PATH_Debug_Windows=dist/Debug_Windows/GNU-Linux/package/colorstone.tar
+CND_PACKAGE_PATH_Debug_Windows=dist/Debug_Windows/MinGW_MSYS-Windows/package/colorstone.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
