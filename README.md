@@ -8,7 +8,7 @@ In order to manage all your RGB hardware in one app, ColorStone emulates the com
 Currently supported hardware:
 - Logitech G213 Prodigy (wip)
 
-If you want to see support for more devices, write me an E-Mail or feel free to commit to the repository.
+If you want to see support for more devices, create an issue or feel free to commit to the repository.
 
 ---
 (wip) means: Work in progress
