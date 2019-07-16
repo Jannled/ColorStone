@@ -54,12 +54,12 @@ int main(int argc, char** argv)
 	usbIds += FSEP + std::string("Connection") + FSEP + std::string("usb.ids");
 	USB_Names usbNames(usbIds);
 	
-	LibUSBCon lusbcon;
+	LibUSBCon lusbcon(&usbNames);
 	lusbcon.init();
 	lusbcon.updateDevices();
 	
 	Device d("Logitech", "G213 Prodigy");
-	cout << "Geräte: " << d.getName() << endl;
+	//cout << "Geräte: " << d.getName() << endl;
 	
 	return 0;
 }

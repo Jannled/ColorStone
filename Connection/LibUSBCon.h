@@ -5,8 +5,8 @@
  */
 
 /* 
- * File:   LibUSB.h
- * Author: jannled
+ * File:   LibUSBCon.h
+ * Author: Jannled
  *
  * Created on 11. Juli 2019, 13:27
  */
@@ -18,10 +18,11 @@
 #include "../include/libusb.h"
 
 #include "HardwareInterface.h"
+#include "USB_Names.h"
 
 class LibUSBCon: public HardwareInterface {
 public:
-	LibUSBCon();
+	LibUSBCon(USB_Names *usbNames);
 	LibUSBCon(const LibUSBCon& orig);
 	virtual ~LibUSBCon();
 	
@@ -33,7 +34,7 @@ private:
 	int deviceCount;
 	libusb_device **list;
 	libusb_context *context;
-
+	USB_Names *usbNames;
 };
 
 #endif /* LIBUSBCON_H */

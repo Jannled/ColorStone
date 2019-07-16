@@ -23,10 +23,10 @@ public:
 	virtual ~USB_Names();
 	
 	void parseIDS(std::string filePath);
-	std::string lookup(char vendor[4], char name[4]);
-	std::string lookup(char vendor[4]);
+	std::string lookup(uint16_t vendor, uint16_t name);
+	std::string lookup(uint16_t vendor);
 private:
-	std::map<char[4], std::string> vendors;
+	std::map<uint16_t, std::string> vendors;
 };
 
 #endif /* USB_NAMES_H */
